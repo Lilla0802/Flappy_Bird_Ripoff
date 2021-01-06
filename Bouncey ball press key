@@ -1,4 +1,5 @@
-var ctx = c.getContext("2d");
+var c = document.getElementById("myCanvas");
+ 
 
  var x = myCanvas.width / 2; //These 2 variables determine the starting circles location, in this case, the top left of the screen.
  var y = myCanvas.height / 2;
