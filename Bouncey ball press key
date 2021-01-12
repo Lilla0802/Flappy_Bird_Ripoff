@@ -1,4 +1,3 @@
-
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 var myImg = new Image(); // image
@@ -22,7 +21,7 @@ var ballSize = 20; //Sets the circle's radius.
 
 function drawCircle() {
   ctx.beginPath();
-  ctx.arc(x, y, ballSize, 0, Math.PI*2); //The circle, on frame one, will always start at the top left, and its size will always be set to ballSize.
+  ctx.arc(x, y, ballSize, 0, Math.PI*2); //The circle will always start at the top left, and its size will always be set to ballSize.
   ctx.fill(); //Fills in the circle with the color provided in fillStyle.
   ctx.stroke();
 }
@@ -31,23 +30,23 @@ function draw() {
   ctx.clearRect(0, 0, myCanvas.width, myCanvas.height); //Clears the canvas every frame, so a new circle can be drawn.
   drawCircle();
 
-  if (x + dx > myCanvas.width - ballSize || x + dx < ballSize) { //If the circle's x position exceeds the width of the canvas...
-    dx = -dx * damping; //The ball's x direction will be flipped, and it will bounce a specific distance (damping).
+  if (x + dx > myCanvas.width - ballSize || x + dx < ballSize) { //If statement for the x position.
+    dx = -dx * damping; //The ball's x direction will be flipped, and it will bounce a specific distance 
   }
 
-  if (y + dy > myCanvas.height - ballSize || y + dy < ballSize) { //If the circle's y position exceeds the height of the canvas...
-    dy = -dy * damping; //The ball's y direction will be flipped, and it will bounce a specfic height (damping).
+  if (y + dy > myCanvas.height - ballSize || y + dy < ballSize) { //If statemebnt for the circle's y position exceeds or less than the height of the canvas...
+    dy = -dy * damping; //The ball's y direction will be flipped, and it will bounce a specfic height 
 
   }
 
-  dy += gravity; //Adds the gravity value to the ball's dy value, giving it a force of gravity.
+  dy += gravity; //Adds the gravity value to the ball's dy value. This giving it a force of gravity.
 
   //x += dx;
 
   if (((y + dy) + ballSize) <= 300) {
     y += dy;
 
-    document.addEventListener("keydown", makeBounce);
+    document.addEventListener("keydown", makeBounce);//key press in order to test  space for the space button for the ball to bounce
 function makeBounce(e) {
   if (e.key == " ") {
     dy -= 10;
