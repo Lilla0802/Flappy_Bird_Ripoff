@@ -1,59 +1,63 @@
+
 var c = document.getElementById("myCanvas");
-
 var ctx = c.getContext("2d");
+var myImg = new Image(); // image
 
- 
+var x = myCanvas.width / 2; //These 2 variables determine the starting circles location
+var y = myCanvas.height / 2;
 
- var x = myCanvas.width / 2; //These 2 variables determine the starting circles location, in this case, the top left of the screen.
- var y = myCanvas.height / 2;
+var dx = 10; //x velocity
+var dy = 10; //y velocity
 
- var dx = 10; //These variables will be used later to change the position of the circle.
- var dy = 10; //Changing both of these numbers will also change the speed of the circle (in other words, how many units the circle moves per frame).
-
- var gravity = 0.2; //Will determine how fast the ball falls to the ground.
- var damping = 0.1; //Will set how high the ball bounces.
+var gravity = 0.2; // how fast the ball falls to the ground.
+var damping = 0.1; //set how high the ball bounces.
 
 
- var ballSize = 20; //Sets the circle's radius.
+var ballSize = 20; //Sets the circle's radius.
+  function drawRect() {
+      myImg.src = "https://imgflip.com/s/meme/Ancient-Aliens.jpg";
 
- function drawCircle() {
-   ctx.beginPath();
-   ctx.arc(x, y, ballSize, 0, Math.PI*2); //The circle, on frame one, will always start at the top left, and its size will always be set to ballSize.
-   ctx.fill(); //Fills in the circle with the color provided in fillStyle.
-   ctx.stroke();
- }
+    }
 
- function draw() {
-   ctx.clearRect(0, 0, myCanvas.width, myCanvas.height); //Clears the canvas every frame, so a new circle can be drawn.
-   drawCircle();
 
-   if (x + dx > myCanvas.width - ballSize || x + dx < ballSize) { //If the circle's x position exceeds the width of the canvas...
-     dx = -dx * damping; //The ball's x direction will be flipped, and it will bounce a specific distance (damping).
-   }
+function drawCircle() {
+  ctx.beginPath();
+  ctx.arc(x, y, ballSize, 0, Math.PI*2); //The circle, on frame one, will always start at the top left, and its size will always be set to ballSize.
+  ctx.fill(); //Fills in the circle with the color provided in fillStyle.
+  ctx.stroke();
+}
 
-   if (y + dy > myCanvas.height - ballSize || y + dy < ballSize) { //If the circle's y position exceeds the height of the canvas...
-     dy = -dy * damping; //The ball's y direction will be flipped, and it will bounce a specfic height (damping).
+function draw() {
+  ctx.clearRect(0, 0, myCanvas.width, myCanvas.height); //Clears the canvas every frame, so a new circle can be drawn.
+  drawCircle();
 
-   }
+  if (x + dx > myCanvas.width - ballSize || x + dx < ballSize) { //If the circle's x position exceeds the width of the canvas...
+    dx = -dx * damping; //The ball's x direction will be flipped, and it will bounce a specific distance (damping).
+  }
 
-   dy += gravity; //Adds the gravity value to the ball's dy value, giving it a artificial force of gravity.
+  if (y + dy > myCanvas.height - ballSize || y + dy < ballSize) { //If the circle's y position exceeds the height of the canvas...
+    dy = -dy * damping; //The ball's y direction will be flipped, and it will bounce a specfic height (damping).
 
-   //x += dx;
+  }
 
-   if (((y + dy) + ballSize) <= 300) {
-     y += dy;
+  dy += gravity; //Adds the gravity value to the ball's dy value, giving it a force of gravity.
 
-     document.addEventListener("keydown", makeBounce);
- function makeBounce(e) {
-   if (e.key == " ") {
-     dy -= 10;
-   }
-   if (e.key == "r") {
-     dx = -dx;
-   }
- }
+  //x += dx;
 
-   }
- }
+  if (((y + dy) + ballSize) <= 300) {
+    y += dy;
 
- setInterval(draw, 10);
+    document.addEventListener("keydown", makeBounce);
+function makeBounce(e) {
+  if (e.key == " ") {
+    dy -= 10;
+  }
+  if (e.key == "r") {
+    dx = -dx;
+  }
+}
+
+  }
+}
+
+setInterval(draw, 10);
