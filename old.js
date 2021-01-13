@@ -11,7 +11,7 @@ var gravity = .5; //Sets the gravity pulling the ball to the ground.
 var damping = 0.75; //The rate at which the ball slows down.
 var ballSize = 5; //Sets the circle's radius.
 
-function drawCircle() {
+function drawCircle() {//this draws the ball keeps the shap and the colors
   ctx.beginPath();
   ctx.arc(x, y, ballSize, 0, Math.PI*2); //The circle, on frame one, will always start at the top left, and its size will always be set to ballSize.
   ctx.fillStyle = "#FF00FF"; //Sets the color of the circle to light blue.
