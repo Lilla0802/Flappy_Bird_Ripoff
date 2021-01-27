@@ -1,7 +1,7 @@
 html, body {
   margin: 0; padding: 0;
 }
-document.body.style.backgroundImage = "url()";
+document.body.style.backgroundImage = url"(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.desktopbackground.org%2Fwallpaper%2Fflappy-generator-plus-create-your-own-flappy-bird-game-799254&psig=AOvVaw0WFHYwgKCJgSgYLBX-MtVd&ust=1611851189322000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLCHt_rsvO4CFQAAAAAdAAAAABAD)";
 .animatedbkg {
   background: gray url(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.desktopbackground.org%2Fwallpaper%2Fflappy-generator-plus-create-your-own-flappy-bird-game-799254&psig=AOvVaw0WFHYwgKCJgSgYLBX-MtVd&ust=1611851189322000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLCHt_rsvO4CFQAAAAAdAAAAABAD) repeat 0 0;
   width: 100%;
