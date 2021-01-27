@@ -1,6 +1,10 @@
 html, body {
   margin: 0; padding: 0;
 }
+<<<<<<< HEAD
+=======
+document.body.style.backgroundImage = url"(https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.desktopbackground.org%2Fwallpaper%2Fflappy-generator-plus-create-your-own-flappy-bird-game-799254&psig=AOvVaw0WFHYwgKCJgSgYLBX-MtVd&ust=1611851189322000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLCHt_rsvO4CFQAAAAAdAAAAABAD)";
+>>>>>>> ff2d440aeb506295506abfb5619888bded7e9e26
 .animatedbkg {
   background: gray url(https://sfwallpaper.com/images/flappy-bird-background-28.jpg) repeat 0 0;
   width: 100%;
