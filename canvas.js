@@ -26,13 +26,7 @@ var ctx = c.getContext("2d");
     var rect = {width: rectWidth, height: rectHeight};
     var xRange = Math.floor(Math.random() * ((c.width - rect.width) - (0 + rect.width)) + (0 + rect.width));
     var yRange = c.height - rect.height;
-    (function(){
-    var x = 0;
-    setInterval(function(){
-        x-=1;
-        ('body').css('', x + 'px 0');
-    }, 10);
-})
+
 
   function draw() {
     ctx.clearRect(0, 0, myCanvas.width, myCanvas.height); //Clears the canvas every frame, so a new circle can be drawn.
@@ -46,6 +40,7 @@ var ctx = c.getContext("2d");
     ctx.fillStyle = "green"; //Sets the color of the circle to light blue.
     ctx.fill(); //Fills in the circle with the color provided in fillStyle.
     ctx.stroke(); //finish drawing the rectangle
+
 
     drawCircle();
     if (x + dx > c.width - ballSize || x + dx < ballSize) { //If the circle's x position exceeds the width of the canvas...
