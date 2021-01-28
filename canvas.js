@@ -8,10 +8,10 @@ var ctx = c.getContext("2d");
   var dx = 5; //These variables will be used later to change the position of the circle.
   var dy = 5; //Changing both of these numbers will also change the speed of the circle (in other words, how many units the circle moves per frame).
 
-  var gravity = 0.2; //Sets the gravity pulling the ball to the ground.
-  var damping = 0.75; //The rate at which the ball slows down.
-  var traction = 0.95; //Will make the ball stop.
-  var ballSize = 20; //Sets the circle's radius.
+  var gravity = 0.3; //Sets the gravity pulling the ball to the ground.
+  var damping = 0.90; //The rate at which the ball slows down.
+  var traction = 1.35; //Will make the ball stop.
+  var ballSize = 25; //Sets the circle's radius.
 
   function drawCircle() {
     ctx.beginPath();
@@ -32,12 +32,12 @@ var ctx = c.getContext("2d");
     ctx.clearRect(0, 0, myCanvas.width, myCanvas.height); //Clears the canvas every frame, so a new circle can be drawn.
     ctx.beginPath(); //starts drawing the rectangle
     ctx.rect(xRange, yRange, rect.width, rect.height);
-    ctx.fillStyle = "green"; //Sets the color of the circle to light blue.
+    ctx.fillStyle = "lightblue"; //Sets the color of the circle to light blue.
     ctx.fill(); //Fills in the circle with the color provided in fillStyle.
     ctx.stroke(); //finish drawing the rectangle
     ctx.beginPath(); //starts drawing the rectangle
     ctx.rect(xRange, 0, rect.width, rect.height);
-    ctx.fillStyle = "green"; //Sets the color of the circle to light blue.
+    ctx.fillStyle = "lightblue"; //Sets the color of the circle to light blue.
     ctx.fill(); //Fills in the circle with the color provided in fillStyle.
     ctx.stroke(); //finish drawing the rectangle
 
