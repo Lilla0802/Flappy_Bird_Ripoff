@@ -9,7 +9,7 @@ html, body {
   height: 300px;
   width: 700px;
   box-sizing: border-box;
-  -webkit-animation: slide 20s linear infinite;
+  -webkit-animation: slide 5s linear infinite;
 }
 
 .hero-bkg-animated h1 {
