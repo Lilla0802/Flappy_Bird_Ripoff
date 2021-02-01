@@ -27,6 +27,7 @@ function drawCircle() {//this draws the ball keeps the shap and the colors
 //var yRange = c.height - rect.height;
 var lowerRect = {x: c.width - 10, y: c.height - 100, width: 50, height: c.height};
 var upperRect = {x: c.width - 10, y: 0, width: 50, height: c.height - 200};
+
   function makePipe(){
     ctx.clearRect(0, 0, c.width, c.height); //since it's a loop, this clears the canvas or else a lot of circles will be draw each time this function loops
     ctx.beginPath(); //starts drawing the rectangle
@@ -48,6 +49,31 @@ var upperRect = {x: c.width - 10, y: 0, width: 50, height: c.height - 200};
       upperRect.x = c.width;
     }
   }
+/*  var lowerRect2 = {x: c.width - 5, y: c.height - 50, width: 50, height: c.height};
+  var upperRect2 = {x: c.width - 15, y: 0, width: 100, height: c.height - 300};
+
+function Pipes2() {
+  ctx.clearRect(5,5, c.width, c.height);
+  ctx.beginPath();
+  ctx.ract(lowerRect2.x, lowerRect2.y, lowerRect2.width, lowerRect2.height);
+  ctx.fillStyle="purple";
+  ctx.fill();
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.rect(upperRect2.x, upperRect2.y, upperRect2.width, upperRect2.height);
+  ctx.fillStyle = "purple";
+  ctx.fill();
+  ctx.stroke();
+  lowerRect2.x = lowerRect2.x - 1;
+  if ((lowerRect2.x + lowerRect2.width) == 1) {
+    lowerRect2.x = c.width;
+  }
+  upperRect2.x = upperRect2.x - 1;
+  if ((upperRect2.x + upperRect2.width) == 1) {
+    upperRect.x = c.width;
+  }
+}
+*/
 
 var score = 0;
 function draw() {
