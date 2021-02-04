@@ -32,12 +32,12 @@ var upperRect = {x: c.width - 10, y: 0, width: 50, height: c.height - 200};
     ctx.clearRect(0, 0, c.width, c.height); //since it's a loop, this clears the canvas or else a lot of circles will be draw each time this function loops
     ctx.beginPath(); //starts drawing the rectangle
     ctx.rect(lowerRect.x, lowerRect.y, lowerRect.width, lowerRect.height);
-    ctx.fillStyle = "green"; //Sets the color of the circle to light blue.
+    ctx.fillStyle = "purple"; //Sets the color of the circle to light blue.
     ctx.fill(); //Fills in the circle with the color provided in fillStyle.
     ctx.stroke(); //finish drawing the rectangle
     ctx.beginPath(); //starts drawing the rectangle
     ctx.rect(upperRect.x, upperRect.y, upperRect.width, upperRect.height);
-    ctx.fillStyle = "green"; //Sets the color of the circle to light blue.
+    ctx.fillStyle = "purple"; //Sets the color of the circle to light blue.
     ctx.fill(); //Fills in the circle with the color provided in fillStyle.
     ctx.stroke(); //finish drawing the rectangle
     lowerRect.x = lowerRect.x - 1;
