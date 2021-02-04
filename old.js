@@ -28,6 +28,9 @@ function drawCircle() {//this draws the ball keeps the shap and the colors
 var lowerRect = {x: c.width - 10, y: c.height - 100, width: 50, height: c.height};
 var upperRect = {x: c.width - 10, y: 0, width: 50, height: c.height - 200};
 
+var newArray = [ {x: c.width - 10, y: c.height - 100, width: 50, height: c.height},
+{x: c.width - 10, y: 0, width: 50, height: c.height - 200}];
+
   function makePipe(){
     ctx.clearRect(0, 0, c.width, c.height); //since it's a loop, this clears the canvas or else a lot of circles will be draw each time this function loops
     ctx.beginPath(); //starts drawing the rectangle
