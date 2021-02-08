@@ -27,8 +27,9 @@ function drawCircle() {//this draws the ball keeps the shap and the colors
 //var yRange = c.height - rect.height;
 var lowerRect = {x: c.width - 10, y: c.height - 100, width: 50, height: c.height};
 var upperRect = {x: c.width - 10, y: 0, width: 50, height: c.height - 200};
-
-var newArray = [ {x: c.width - 10, y: c.height - 100, width: 50, height: c.height},
+var pipes  = {side1:upperRect.x + upperRect.y, side2 :upperRect.width + upperRect.height};
+console.log()
+var newArray = [{x: c.width - 10, y: c.height - 100, width: 50, height: c.height},
 {x: c.width - 10, y: 0, width: 50, height: c.height - 200}];
 
   function makePipe(){
