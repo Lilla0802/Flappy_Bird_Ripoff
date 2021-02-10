@@ -53,6 +53,7 @@ var newArray = [{x: c.width - 10, y: c.height - 100, width: 50, height: c.height
       upperRect.x = c.width;
     }
   }
+
 /*  var lowerRect2 = {x: c.width - 5, y: c.height - 50, width: 50, height: c.height};
   var upperRect2 = {x: c.width - 15, y: 0, width: 100, height: c.height - 300};
 
@@ -101,6 +102,7 @@ function draw() {
   ctx.stroke();
   */
   makePipe();
+  }
   drawCircle();
   if (x + dx > c.width - ballSize || x + dx < ballSize) { //If the circle's x position exceeds the width of the canvas...
     dx = -dx; //The ball's x direction will be flipped, and it will bounce a specific distance (damping).
