@@ -44,7 +44,7 @@ function collisionCheck() {
     score += 1;
     console.log(score);
   }
-  if (ball.x < newArray.xU + newArray.widthU && ball.x + ball.ballSize > newArray.xU && ball.y < newArray.yU + newArray.heightU && ball.y + ball.ballSize > upperRect.y) {
+  if (ball.x < newArray.xU + newArray.widthU && ball.x + ball.ballSize > newArray.xU && ball.y < newArray.yU + newArray.heightU && ball.y + ball.ballSize > newArray.yU) {
     ball.dx = -ball.dx;
     score += 1;
     console.log(score);
