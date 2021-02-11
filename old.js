@@ -48,10 +48,12 @@ function collisionCheck() {
     ball.dx = -ball.dx;
     score += 1;
     console.log(score);
-  }
-  //location.reload() if it hits something
-}
+  }  //location.reload() if it hits something
+  location.reload(makePipe)
+    if (true) {
 
+    }
+}
 function draw() {
   ctx.clearRect(0, 0, myCanvas.width, myCanvas.height); //Clears the canvas every frame, so a new circle can be drawn.
   if (timer == spaceDifficulty) {
