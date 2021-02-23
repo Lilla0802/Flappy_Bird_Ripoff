@@ -1,7 +1,7 @@
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 var myImg = new Image(); // image
-
+//adding it to main
 var x = myCanvas.width / 2; //These 2 variables determine the starting circles location
 var y = myCanvas.height / 2;
 
@@ -31,11 +31,11 @@ function draw() {
   drawCircle();
 
   if (x + dx > myCanvas.width - ballSize || x + dx < ballSize) { //If statement for the x position.
-    dx = -dx * damping; //The ball's x direction will be flipped, and it will bounce a specific distance 
+    dx = -dx * damping; //The ball's x direction will be flipped, and it will bounce a specific distance
   }
 
   if (y + dy > myCanvas.height - ballSize || y + dy < ballSize) { //If statemebnt for the circle's y position exceeds or less than the height of the canvas...
-    dy = -dy * damping; //The ball's y direction will be flipped, and it will bounce a specfic height 
+    dy = -dy * damping; //The ball's y direction will be flipped, and it will bounce a specfic height
 
   }
 
