@@ -1,0 +1,10 @@
+[default]
+name=Default
+runtime=host
+config-opts=
+run-opts=
+prefix=/home/andy/.cache/gnome-builder/install/Flappy_Bird_Ripoff/host
+app-id=
+postbuild=
+prebuild=
+default=true

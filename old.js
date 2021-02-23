@@ -8,18 +8,21 @@ var newArray = [];
 var timer = 0;
 var spaceDifficulty = 400;
 var score = 0;
+
 /*var lowerRect = {xL: c.width - 10, yL: c.height - 100, widthL: 50, heightL: c.height};
 var upperRect = {xU: c.width - 10, yU: 0, widthU: 50, heightU: c.height - 200};
 var pipes  = {side1:upperRect.x + upperRect.y, side2 :upperRect.width + upperRect.height};
 console.log()*/
 
-function drawCircle() {//this draws the ball keeps the shap and the colors
+function drawCircle() {//this draws the ball keeps the shape and the colors
   ctx.beginPath();
   ctx.arc(ball.x, ball.y, ball.ballSize, 0, Math.PI*2); //The circle, on frame one, will always start at the top left, and its size will always be set to ballSize.
   ctx.fillStyle = "#FF00FF"; //Sets the color of the circle to light blue.
   ctx.fill(); //Fills in the circle with the color provided in fillStyle.
   ctx.stroke();
 }
+
+
 
 function makePipe(lowRectX, lowRectY, lowRectWid, lowRectHeight, upRectX, upRectY, upRectWid, upRectHeight){
   ctx.clearRect(0, 0, c.width, c.height); //since it's a loop, this clears the canvas or else a lot of circles will be draw each time this function loops
@@ -49,10 +52,6 @@ function collisionCheck() {
     score += 1;
     console.log(score);
   }  //location.reload() if it hits something
-  location.reload(makePipe)
-    if (true) {
-
-    }
 }
 function draw() {
   ctx.clearRect(0, 0, myCanvas.width, myCanvas.height); //Clears the canvas every frame, so a new circle can be drawn.
@@ -83,9 +82,13 @@ function draw() {
   }
   timer ++;
 }
-
+/*var luma = new Image();
+luma.src = "luma.png";
+luma.width = 10;
+luma.height = 10;
+ctx.drawImage(luma,150,150,10,10)
 setInterval(draw, 15);
-
+*/
 document.addEventListener("keydown", makeBounce);
  function makeBounce(e) {
    if (e.key == " ") {
