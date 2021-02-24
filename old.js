@@ -21,7 +21,8 @@ function drawCircle() {//this draws the ball keeps the shape and the colors
   ctx.fill(); //Fills in the circle with the color provided in fillStyle.
   ctx.stroke();
 }
-function makePipe(lowRectX, lowRectY, lowRectWid, lowRectHeight, upRectX, upRectY, upRectWid, upRectHeight){
+
+function makePipe(){
   ctx.clearRect(0, 0, c.width, c.height); //since it's a loop, this clears the canvas or else a lot of circles will be draw each time this function loops
   for (var i = 0; i < newArray.length; i++) {
     ctx.beginPath(); //starts drawing the rectangle
@@ -36,20 +37,47 @@ function makePipe(lowRectX, lowRectY, lowRectWid, lowRectHeight, upRectX, upRect
     ctx.stroke(); //finish drawing the rectangle
   }
 }
-
-function collisionCheck() {
-  //these 2 ifs are the collision
-  if (ball.x < newArray.xL + newArray.widthL && ball.x + ball.ballSize > newArray.xL && ball.y < newArray.yL + newArray.heightL && ball.y + ball.ballSize > newArray.yL) {
-    ball.dx = -ball.dx;
-    score += 1;
-    console.log(score);
+/*This function checks for collision with the pipes and if the ball has passed trought a pipe
+function collisionCheck(lowRectX, lowRectY, lowRectWid, lowRectHeight, upRectX, upRectY, upRectWid, upRectHeight) {
+  if ((ball.x + dx + ball.ballSize > lowRectX) && (ball.x + dx + ball.ballSize < lowRectX + 2)) {//checks if the ball has passed between the pipes
+    score ++; //it yes, add one to score
+    console.log(score); //log the score in the console
+    document.getElementById('score').innerHTML = "Score = " + score;// shows the score on the screen
   }
-  if (ball.x < newArray.xU + newArray.widthU && ball.x + ball.ballSize > newArray.xU && ball.y < newArray.yU + newArray.heightU && ball.y + ball.ballSize > newArray.yU) {
-    ball.dx = -ball.dx;
-    score += 1;
-    console.log(score);
-  }  //location.reload() if it hits something
+  if ((ball.x + dx + ball.ballSize > upRectX) && (ball.y + ball.ballSize < upRectHeight) && (ball.ballSize + ball.x < upRectX + upRectWid)) { //checks for collision with the top pipe on the left side
+    gameState = 2;//if true, ends the game
+  }
+  if ((ball.y + dy - ball.ballSize < upRectHeight) && (ball.x + ball.ballSize < upRectWid + upRectX + 50) && (ball.ballSize + ball.x > upRectX)) { //checks for collision with the bottom of the top pipe
+    gameState = 2;//if true, ends the game
+  }
+  if ((ball.x + dx + ball.ballSize > lowRectX) && (ball.y + ball.ballSize > lowRectY) && (ball.ballSize + ball.x < lowRectX + lowRectWid)) { //checks for the collision with the bottom pipe on the left side
+    gameState = 2;//if true, ends the game
+  }
+  if ((ball.y + dy + ball.ballSize > lowRectY) && (ball.x + ball.ballSize < lowRectWid + lowRectX + 50) && (ball.ballSize + ball.x > lowRectX)) { //checks for collision with the top of the bottom pipe
+    gameState = 2;//if true, ends the game
+  }
+}*/
+//This function checks for collision with the pipes and if the ball has passed trought a pipe
+function collisionCheck(xL, yL, widthL, heightL, xU, yU, widthU, heightU) {
+  if ((ball.x + dx + ball.ballSize > xL) && (ball.x + dx + ball.ballSize < xL + 2)) {//checks if the ball has passed between the pipes
+    score ++; //it yes, add one to score
+    console.log(score); //log the score in the console
+    document.getElementById('score').innerHTML = "Score = " + score;// shows the score on the screen
+  }
+  if ((ball.x + dx + ball.ballSize > xU) && (ball.y + ball.ballSize < heightU) && (ball.ballSize + ball.x < xU + widthU)) { //checks for collision with the top pipe on the left side
+    gameState = 2;//if true, ends the game
+  }
+  if ((ball.y + dy - ball.ballSize < heightU) && (ball.x + ball.ballSize < widthU + xU + 50) && (ball.ballSize + ball.x > xU)) { //checks for collision with the bottom of the top pipe
+    gameState = 2;//if true, ends the game
+  }
+  if ((ball.x + dx + ball.ballSize > xL) && (ball.y + ball.ballSize > yL) && (ball.ballSize + ball.x < yL + widthL)) { //checks for the collision with the bottom pipe on the left side
+    gameState = 2;//if true, ends the game
+  }
+  if ((ball.y + dy + ball.ballSize > yL) && (ball.x + ball.ballSize < widthL + xL + 50) && (ball.ballSize + ball.x > xL)) { //checks for collision with the top of the bottom pipe
+    gameState = 2;//if true, ends the game
+  }
 }
+
 function draw() {
   ctx.clearRect(0, 0, myCanvas.width, myCanvas.height); //Clears the canvas every frame, so a new circle can be drawn.
   if (timer == spaceDifficulty) {
