@@ -17,13 +17,10 @@ console.log()*/
 function drawCircle() {//this draws the ball keeps the shape and the colors
   ctx.beginPath();
   ctx.arc(ball.x, ball.y, ball.ballSize, 0, Math.PI*2); //The circle, on frame one, will always start at the top left, and its size will always be set to ballSize.
-  ctx.fillStyle = "#FF00FF"; //Sets the color of the circle to light blue.
+  ctx.fillStyle = "pink"; //Sets the color of the circle to light blue.
   ctx.fill(); //Fills in the circle with the color provided in fillStyle.
   ctx.stroke();
 }
-
-
-
 function makePipe(lowRectX, lowRectY, lowRectWid, lowRectHeight, upRectX, upRectY, upRectWid, upRectHeight){
   ctx.clearRect(0, 0, c.width, c.height); //since it's a loop, this clears the canvas or else a lot of circles will be draw each time this function loops
   for (var i = 0; i < newArray.length; i++) {
