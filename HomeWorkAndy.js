@@ -4,6 +4,6 @@ document.addEventListener("keydown", makeBounce);
 
    }
    if (e.key == "r") {
-    background.color(pink) 
+    background.color() 
    }
  }
