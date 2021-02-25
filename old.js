@@ -37,6 +37,7 @@ function makePipe(){
     ctx.stroke(); //finish drawing the rectangle
   }
 }
+
 /*This function checks for collision with the pipes and if the ball has passed trought a pipe
 function collisionCheck(lowRectX, lowRectY, lowRectWid, lowRectHeight, upRectX, upRectY, upRectWid, upRectHeight) {
   if ((ball.x + dx + ball.ballSize > lowRectX) && (ball.x + dx + ball.ballSize < lowRectX + 2)) {//checks if the ball has passed between the pipes
