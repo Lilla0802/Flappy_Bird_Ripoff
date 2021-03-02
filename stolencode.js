@@ -20,23 +20,24 @@ var score = 0; //tracks how many pipes you have passed through
 var spaceDifficulty = 400; //how frequently the pipes will apear after eachother
 var imageCounter = 0;
 var gameState = 1;
-var imgStart = new Image(); //basically creates the image
-imgStart.onload = function(){ //uploads the image onto the screen
+var star = new Image(); //basically creates the image
+star.onload = function(){ //uploads the image onto the screen
   draw(); //uses a function from below
 }
-imgStart.src="smiley.gif"; //source for where the image is coming from
+star.src="newStar.png"; //source for where the image is coming from
 
 function drawBirb() {
   console.log("work");
  ctx.save(); //saves the present condition/state of the image/game
  ctx.beginPath(); //starts the drawing
  if (imageCounter == 0) { //this if draws the bird in the regular position/straight horizontally
-   ctx.drawImage(imgStart, ball.xPos-ball.ballSize-10, ball.yPos-ball.ballSize-10, ball.ballSize+40, ball.ballSize+20) //parameters for drawing the bird
+   ctx.drawImage(star, ball.xPos-ball.ballSize-10, ball.yPos-ball.ballSize-10, ball.ballSize+40, ball.ballSize+20) //parameters for drawing the bird
  ctx.fill(); //fills the image/drawing
  ctx.stroke(); //finishes the drawing
  ctx.restore(); //reuses the saved image
 }
 }
+
 function drawCircle() {
   ctx.beginPath();
   ctx.arc(ball.x, ball.y, ball.ballSize, 0, Math.PI*2); //The circle, on frame one, will always start at the top left, and its size will always be set to ballSize.
@@ -52,22 +53,22 @@ function makePipe(lowRectX, lowRectY, lowRectWid, lowRectHeight, upRectX, upRect
   for (var i = 0; i < rectArray.length; i++) {
     ctx.beginPath(); //starts drawing the rectangle
     ctx.rect(rectArray[i].xPosL, rectArray[i].yPosL, rectArray[i].widthL, rectArray[i].heightL);//draws the actual rectangle
-    ctx.fillStyle = "green"; //Sets the color of the circle to green.
+    ctx.fillStyle = "purple"; //Sets the color of the circle to green.
     ctx.fill(); //Fills in the circle with the color provided in fillStyle.
     ctx.stroke(); //finish drawing the rectangle
     ctx.beginPath(); //starts drawing the rectangle
     ctx.rect(rectArray[i].xPosL-15, rectArray[i].yPosL, rectArray[i].widthL+30, 40);//draws the actual rectangle
-    ctx.fillStyle = "green"; //Sets the color of the circle to green.
+    ctx.fillStyle = "purple"; //Sets the color of the circle to green.
     ctx.fill(); //Fills in the circle with the color provided in fillStyle.
     ctx.stroke(); //finish drawing the rectangle
     ctx.beginPath(); //starts drawing the rectangle
     ctx.rect(rectArray[i].xPosU, rectArray[i].yPosU, rectArray[i].widthU, rectArray[i].heightU);
-    ctx.fillStyle = "green"; //Sets the color of the circle to green.
+    ctx.fillStyle = "purple"; //Sets the color of the circle to green.
     ctx.fill(); //Fills in the circle with the color provided in fillStyle.
     ctx.stroke(); //finish drawing the rectangle
     ctx.beginPath(); //starts drawing the rectangle
     ctx.rect(rectArray[i].xPosU-15, rectArray[i].heightU-40, rectArray[i].widthU+30, 40);
-    ctx.fillStyle = "green"; //Sets the color of the circle to green.
+    ctx.fillStyle = "purple"; //Sets the color of the circle to green.
     ctx.fill(); //Fills in the circle with the color provided in fillStyle.
     ctx.stroke(); //finish drawing the rectangle
   }
