@@ -1,24 +1,40 @@
 //stolen from aidan
 
 var c = document.getElementById("myCanvas");
+
 var ctx = c.getContext("2d");
 
 //These 2 variables determine the starting circles location, in this case, the top left of the screen.
 var ball ={x: c.width/2, y: c.height/2, ballSize: 15, }
+
 var dx = 0; //Used to change where the ball is located
+
 var dy = 10; //
+
 var gravity = .07; //sets gravity
+
 var damping = 0.75; //stopped of the ball
+
 var rectWidth = Math.floor(Math.random() * (125 - 100) + 100);//gives a random width for the pipe
+
 var rectHeight = Math.floor(Math.random() * (190 - 170) + 170);//gives a random height for the pipe
+
 var rectLower = {xPos: c.width - rectWidth, yPos: c.height - rectWidth, width: rectWidth, height: rectHeight};//creates the base of the pipe
+
 var rectUpper = {xPos: c.width - rectWidth, yPos: 0, width: rectWidth, height: rectHeight};//creates the top pipe
+
 var rectArray = [];//used to store multiple pipes on screen
+
 var timer = 0; //counter for when to create a new pipe`
+
 var difficultTimer = 0; //keeps track of how frequent pipes should apear on screen
+
 var score = 0; //tracks how many pipes you have passed through
+
 var spaceDifficulty = 400; //how frequently the pipes will apear after eachother
+
 var imageCounter = 0;
+
 var gameState = 1;
 var star = new Image(); //basically creates the image
 star.onload = function(){ //uploads the image onto the screen
@@ -26,7 +42,7 @@ star.onload = function(){ //uploads the image onto the screen
 }
 star.src="newStar.png"; //source for where the image is coming from
 
-function drawBirb() {
+function drawStar() {
   console.log("work");
  ctx.save(); //saves the present condition/state of the image/game
  ctx.beginPath(); //starts the drawing
@@ -94,7 +110,37 @@ function collisionCheck(lowRectX, lowRectY, lowRectWid, lowRectHeight, upRectX, 
     gameState = 2;//if true, ends the game
   }
 }
-
+function updateGameArea() {
+  var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+  for (i = 0; i < pipes.length; i += 1) {
+    if (star.crashWith(pipes[i])) {
+      myCanvas.stop();
+      return;
+    }
+  }
+  myCanvas.clear();
+  myCanvas.frameNo += 1;
+  if (myCanvas.frameNo == 1 || everyinterval(150)) {
+    x = myGameArea.canvas.width;
+    minHeight = 20;
+    maxHeight = 200;
+    height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+    minGap = 50;
+    maxGap = 200;
+    gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+    pipes.push(new component(10, height, "purple", x, 0));
+    pipes.push(new component(10, x - height - gap, "purple", x, height + gap));
+  }
+  for (i = 0; i < pipes.length; i += 1) {
+    pipes[i].speedX = -1;
+    pipes[i].newPos();
+    pipes[i].update();
+  }
+  myScore.text = "SCORE: " + myCanvas.frameNo;
+  myScore.update();
+  star.newPos();
+  star.update();
+}
 //This function draws the pipes and the ball as well as sicking the score up and checking for collision
 function draw() {
   ctx.clearRect(0, 0, myCanvas.width, myCanvas.height); //Clears the canvas every frame, so a new circle can be drawn.
@@ -131,7 +177,7 @@ function draw() {
       rectArray[i].xPosL --;//allows the pipes to move from right to left
       rectArray[i].xPosU --;//allows the pipes to move from right to left
     }
-    drawBirb();//draws the birb
+    drawStar();//draws the birb
     drawCircle();//draws the ball
     if (ball.x + dx > c.width - ball.ballSize || ball.x + dx < ball.ballSize) { //If the circle's x position exceeds the width of the canvas...
       dx = -dx; //The ball's x direction will be flipped, and it will bounce a specific distance (damping).
