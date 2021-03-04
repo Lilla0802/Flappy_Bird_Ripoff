@@ -36,6 +36,7 @@ var spaceDifficulty = 400; //how frequently the pipes will apear after eachother
 var imageCounter = 0;
 
 var gameState = 1;
+
 var star = new Image(); //basically creates the image
 star.onload = function(){ //uploads the image onto the screen
   draw(); //uses a function from below
